@@ -1,0 +1,40 @@
+\ProvidesPackage{oopsla2016}
+
+\def\@@ptsize{10pt}
+
+\DeclareOption{1stsubmission}{
+  \renewcommand{\authorinfo}[3]{
+    \global\@increment \@authorcount
+    \@withname\gdef {\@authorname\romannumeral\@authorcount}{Please}%
+    \@withname\gdef {\@authoraffil\romannumeral\@authorcount}{anonymize}%
+    \@withname\gdef {\@authoremail\romannumeral\@authorcount}{your paper}
+  }
+  \@setflag \@preprint = \@true
+
+  %% Copy-paste from sigplanconf
+  %% \def \ps@plain {%
+  %% \let \@mkboth = \@gobbletwo
+  %% \let \@evenhead = \@empty
+  %% \def \@evenfoot {\scriptsize
+  %%                  \rlap{\textit{\@preprintfooter}}\hfil
+  %%                  \thepage \hfil
+  %%                  \llap{\textit{\@formatyear}}}%
+  %% \let \@oddhead = \@empty
+  %% \let \@oddfoot = \@evenfoot}
+  \sigplanfooter
+
+}
+
+\DeclareOption{2ndsubmission}{
+  \@setflag \@preprint = \@true
+  \sigplanfooter
+}
+
+\DeclareOption{final}{
+  \@setflag \@preprint = \@false
+  \sigplanfooter
+}
+
+\ProcessOptions\relax
+
+\endinput
