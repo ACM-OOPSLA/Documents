@@ -33,10 +33,12 @@
 
 \DeclareOption{1stsubmission}{
   \renewcommand{\authorinfo}[3]{
-    \global\@increment \@authorcount
-    \@withname\gdef {\@authorname\romannumeral\@authorcount}{Please}%
-    \@withname\gdef {\@authoraffil\romannumeral\@authorcount}{anonymize}%
-    \@withname\gdef {\@authoremail\romannumeral\@authorcount}{your paper}
+    \ifnum\@authorcount=0  % only process first call to \authorinfo
+      \global\@increment \@authorcount
+      \@withname\gdef {\@authorname\romannumeral\@authorcount}{Double-blind submission}%
+      \@withname\gdef {\@authoraffil\romannumeral\@authorcount}{}%
+      \@withname\gdef {\@authoremail\romannumeral\@authorcount}{}
+    \fi
   }
   \@setflag \@preprint = \@true
 
