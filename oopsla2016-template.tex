@@ -21,7 +21,7 @@
 %-----------------------------------------------------------------------------
 
 
-\documentclass[10pt]{sigplanconf}
+\documentclass[10pt,nonatbib]{sigplanconf}
 \usepackage[1stsubmission]{oopsla2016}
 
 % The following oopsla2016 options are available:
@@ -249,7 +249,7 @@ Lots of text.
 
 More text.
 
-Lots of text.
+Lots of text \cite{smith02}.
 
 \appendix
 \section{Appendix Title}
@@ -269,7 +269,7 @@ Acknowledgments, if needed.
 \begin{thebibliography}{}
 \softraggedright
 
-\bibitem[Smith et~al.(2009)Smith, Jones]{smith02}
+\bibitem{smith02}
 P. Q. Smith, and X. Y. Jones. ...reference text...
 
 \end{thebibliography}
